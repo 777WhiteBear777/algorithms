@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SelectionSort {
 
-    public void selectionSort(List<Integer> sort) {
+    public static List<Integer>  selectionSort(List<Integer> sort) {
 
 
         for (int i = 0; i < sort.size(); i++) {
@@ -21,6 +21,8 @@ public class SelectionSort {
             sort.set(pos, sort.get(i));
             sort.set(i, minNumber);
         }
+
+        return sort;
 
     }
 

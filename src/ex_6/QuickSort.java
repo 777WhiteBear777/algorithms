@@ -4,10 +4,11 @@ import java.util.List;
 
 public class QuickSort {
 
-    int swap;
+    public static List<Integer>  quickSort(List<Integer> sort, int low, int high) {
 
-    public void quickSort(List<Integer> sort, int low, int high) {
-        if (low >= high) return;
+        int swap;
+
+        if (low >= high) return null;
 
         int number = sort.get(low + (high - low) / 2);
         int i = low;
@@ -31,6 +32,9 @@ public class QuickSort {
         }
         if (low < j) quickSort(sort, low, j);
         if (high > i) quickSort(sort, i, high);
+
+        return sort;
     }
+
 
 }

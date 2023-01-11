@@ -4,9 +4,10 @@ import java.util.List;
 
 public  class BubbleSort {
 
-    int swap;
+    public static List<Integer> bubbleSort(List<Integer> sort) {
 
-    public void bubbleSort(List<Integer> sort) {
+        int swap;
+
         for (int i = 0; i < sort.size() - 1; i++) {
             for (int j = 0; j  < sort.size() - i - 1; j++) {
                 if (sort.get(j + 1) < sort.get(j)) {
@@ -16,6 +17,8 @@ public  class BubbleSort {
                 }
             }
         }
+
+        return sort;
 
     }
 
