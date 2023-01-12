@@ -7,11 +7,15 @@ import java.util.Set;
 
 public class Dijkstra {
 
-    private int distance[];
-    private Set<Integer> settled;
-    private PriorityQueue<Node> priorityQueue;
+    int distance[];
+    Set<Integer> settled;
+    PriorityQueue<Node> priorityQueue;
     private int countCity;
-    List<List<Node>> cities;
+    List<List<Node>> citiesDijkstra;
+
+    public int[] getDistance() {
+        return distance;
+    }
 
     public Dijkstra(int countCity) {
         this.distance = new int[countCity];
@@ -21,37 +25,44 @@ public class Dijkstra {
     }
 
     public void dijkstra(List<List<Node>> cities) {
-        this.cities = cities;
+        this.citiesDijkstra = cities;
 
-        priorityQueue.add(new Node("Odessa"));
+        for (int i = 0; i < countCity; i++) {
+            distance[i] = Integer.MAX_VALUE;
+
+        }
+
+        priorityQueue.add(new Node("Odessa", 0, null, 0));
         distance[0] = 0;
         while (settled.size() != countCity) {
             if (priorityQueue.isEmpty()) {
                 return;
             }
 
-            int u = priorityQueue.remove().getDistance();
-            settled.add(u);
+            int id = priorityQueue.remove().getId();
+            settled.add(id);
+
+            nextCities(id);
 
         }
     }
 
-    private void nextCities(int nextCites) {
-        int edgeDistance = -1;
-        int newDistance = -1;
+    private void nextCities(int id) {
+        int edgeDistance;
+        int newDistance;
 
-        for (int i = 0; i < cities.get(nextCites).size(); i++) {
-            Node node = cities.get(nextCites).get(i);
+        for (int i = 0; i < citiesDijkstra.get(id).size(); i++) {
+            Node node = citiesDijkstra.get(id).get(i);
 
-            if (!settled.contains(node.getDistance())) {
+            if (!settled.contains(node.getId())) {
                 edgeDistance = node.getDistance();
-                newDistance = distance[nextCites] + edgeDistance;
+                newDistance = distance[id] + edgeDistance;
 
-                if (newDistance < distance[node.getDistance()]) {
-                    distance[node.getDistance()] = newDistance;
+                if (newDistance < distance[node.getId()]) {
+                    distance[node.getId()] = newDistance;
                 }
 
-                priorityQueue.add(new Node());
+                priorityQueue.add(new Node(node.getNameNextCity(), node.getId(), node.getNameCity(), distance[node.getId()]));
             }
 
         }
