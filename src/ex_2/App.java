@@ -10,7 +10,7 @@ public class App {
                 new Tree('J', new Tree('I', new Tree('H'), null), new Tree('L', new Tree('K'), new Tree('M'))));
 
         System.out.println(tree.sumSymbolQueue(tree));// в ширину
-        System.out.println(tree.sumSymbolStack(tree));// в глубину
+        System.out.println(tree.sumSymbolStack());// в глубину
 
     }
 
@@ -59,28 +59,43 @@ class Tree {
         return sumLine.toString();
     }
 
-    public String sumSymbolStack(Tree root) {
+    public String sumSymbolStack() {
 
-        Stack<Tree> stack = new Stack<>();
-        stack.add(root);
+        String sumLine = symbol + " ";
 
-        StringBuilder sumLine = new StringBuilder();
-
-        while (!stack.isEmpty()) {
-            Tree node = stack.pop();
-            sumLine.append(node.symbol).append(" ");
-
-            if (node.right != null) {
-                stack.push(node.right);
-            }
-            if (node.left != null) {
-                stack.push(node.left);
-            }
-
+        if (left != null) {
+            sumLine += left.sumSymbolStack();
         }
 
-        return sumLine.toString();
+        if (right != null) {
+            sumLine += right.sumSymbolStack();
+        }
+
+        return sumLine;
     }
+
+//    public String sumSymbolStack(Tree root) {
+//
+//        Stack<Tree> stack = new Stack<>();
+//        stack.add(root);
+//
+//        StringBuilder sumLine = new StringBuilder();
+//
+//        while (!stack.isEmpty()) {
+//            Tree node = stack.pop();
+//            sumLine.append(node.symbol).append(" ");
+//
+//            if (node.right != null) {
+//                stack.push(node.right);
+//            }
+//            if (node.left != null) {
+//                stack.push(node.left);
+//            }
+//
+//        }
+//
+//        return sumLine.toString();
+//    }
 
     @Override
     public String toString() {
