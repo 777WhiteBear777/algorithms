@@ -8,14 +8,24 @@ public class Node implements Comparator<Node> {
     private String nameNextCity;
     private int distance;
 
-    public String getNameCity() {return nameCity;}
+    public String getNameCity() {
+        return nameCity;
+    }
 
-    public String getNameNextCity() {return nameNextCity;}
+    public String getNameNextCity() {
+        return nameNextCity;
+    }
 
-    public int getDistance() {return distance;}
-    public int getId() {return id;}
+    public int getDistance() {
+        return distance;
+    }
 
-    public Node() {}
+    public int getId() {
+        return id;
+    }
+
+    public Node() {
+    }
 
     public Node(String nameCity) {
         this.nameCity = nameCity;
@@ -27,9 +37,6 @@ public class Node implements Comparator<Node> {
         this.nameCity = nameCity;
         this.distance = distance;
     }
-
-    @Override
-    public String toString() {return " " + nameCity;}
 
     @Override
     public int compare(Node node1, Node node2) {
