@@ -4,7 +4,7 @@ import java.util.List;
 
 public class QuickSort {
 
-    public static List<Integer>  quickSort(List<Integer> sort, int low, int high) {
+    public static List<Integer> quickSort(List<Integer> sort, int low, int high) {
 
         int swap;
 
