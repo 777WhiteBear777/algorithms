@@ -11,7 +11,7 @@ public class Animals {
         this.id = id;
     }
 
-    public void eat(){
+    public void eat() {
         System.out.println("Animal is eating...");
     }
 
