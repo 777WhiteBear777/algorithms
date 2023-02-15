@@ -31,7 +31,7 @@ public class InitData {
                         new Node(NIKOLAEV, 2, ODESSA, 132)
                 ),
                 List.of(
-                        new Node(KIEV, 3, UMAN, 212),
+                        new Node(KIEV, 3, UMAN, 2121),
                         new Node(VINITSA, 4, UMAN, 160),
                         new Node(KROPIVNITSKIY, 5, UMAN, 167)
                 ),
@@ -79,7 +79,7 @@ public class InitData {
                 ),
                 List.of(
                         new Node(RIVNE, 14, TERNOPIL, 159),
-                        new Node(LVOV, 16, TERNOPIL, 127)
+                        new Node(LVOV, 16, TERNOPIL, 1271)
                 ),
                 List.of(
                         new Node(LVOV)

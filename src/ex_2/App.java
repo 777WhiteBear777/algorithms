@@ -6,8 +6,12 @@ public class App {
     public static void main(String[] args) {
 
         Tree tree = new Tree('G',
-                new Tree('D', new Tree('B', new Tree('A'), new Tree('C')), new Tree('F', new Tree('E'), null)),
-                new Tree('J', new Tree('I', new Tree('H'), null), new Tree('L', new Tree('K'), new Tree('M'))));
+                new Tree('D',
+                        new Tree('B', new Tree('A'), new Tree('C')),
+                        new Tree('F', new Tree('E'), null)),
+                new Tree('J',
+                        new Tree('I', new Tree('H'), null),
+                        new Tree('L', new Tree('K'), new Tree('M'))));
 
         System.out.println(tree.sumSymbolQueue(tree));// в ширину
         System.out.println(tree.sumSymbolStack());// в глубину
